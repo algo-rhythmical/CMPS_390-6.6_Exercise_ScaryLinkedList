@@ -145,7 +145,6 @@ public class LinkedList{
     }
 
     static void buildIndexList(){
-
         for(int i = 0; i < 26; i++){ //i represent current letter
             if(!isSectionEmpty(i)) {
                 nameCodeIndex[i] = makeIndexNode(i);
@@ -153,14 +152,12 @@ public class LinkedList{
             else{
                 nameCodeIndex[i] = makeEmptyIndexNode(i);
             }
-
         }
     }
 
     static boolean isSectionEmpty(int n) {
         Node current;
         int lowerBound, upperBound;
-
         n += 1; //offset due to nameCode offset
         lowerBound = n * 456976;
         upperBound = (n+1) * 456976;
@@ -178,11 +175,9 @@ public class LinkedList{
 
     static void sectionCount(int n){
         int upperBound = (n+2)*456976; //n+2 due to nameCode offset, a = 1, b = 2, etc
-        Node current, previous;
+        Node current;
         int count=0;
         current = nameCodeIndex[n].firstNode;
-        previous = current;
-
         if(nameCodeIndex[n].firstNode == null){
             System.out.println(nameCodeIndex[n].emptyIndex);
             System.out.println();
@@ -190,7 +185,6 @@ public class LinkedList{
         else {
             while (current.next != null && current.nameCode < upperBound) {
                 ++count;
-                previous = current;
                 current = current.next;
             }
             if (current.next == null) {
@@ -205,7 +199,6 @@ public class LinkedList{
         Node current, previous;
         current = nameCodeIndex[n].firstNode;
         previous = current;
-
         if(nameCodeIndex[n].firstNode == null){
             System.out.println(nameCodeIndex[n].emptyIndex);
             System.out.println();
@@ -239,9 +232,8 @@ public class LinkedList{
 
     static void showFullListCount(){
         int count = 0;
-        Node current, previous;
+        Node current;
         current = front;
-        previous = current;
         if(front == null) {
             System.out.println("The list is empty!");
         }
@@ -251,7 +243,6 @@ public class LinkedList{
         else{
             while(current.next != null) {
                 ++count;
-                previous = current;
                 current = current.next;
             }
             if(current.next == null){ //to be able to print last node

@@ -52,7 +52,7 @@ public class Main extends LinkedList{
             switchChoice = (int)modChoice.charAt(0) - 48;
             switch(switchChoice) {
                 case 1: //print out all names in the list
-                    System.out.println("Full list of names:");
+                    System.out.println("Full list of names:" +"\n");
                     showFullList();
                     break;
                 case 2: //print out number of names in the list
