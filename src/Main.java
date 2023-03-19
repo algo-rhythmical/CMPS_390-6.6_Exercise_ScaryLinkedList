@@ -20,9 +20,9 @@ public class Main extends LinkedList{
         Node nodeForDelete;
 
         System.out.print("Enter the file name: ");
-            fileName = keyboard.nextLine();
-            file = new File("src\\"+fileName);
-            listReader = new Scanner(file);
+        fileName = keyboard.nextLine();
+        file = new File("src\\"+fileName);
+        listReader = new Scanner(file);
 
         init();
         while (listReader.hasNextLine()){
@@ -118,11 +118,9 @@ public class Main extends LinkedList{
                 System.exit(0);
             }
         }
-
         }
         catch (FileNotFoundException e){
             System.out.println(e);
         }
-
     }
 }
