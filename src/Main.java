@@ -76,13 +76,13 @@ public class Main extends LinkedList{
                         break;
                     }
                     else if(isFront(deleteEntry)){
-                        deleteFront();
+                        deleteFront(); System.out.println();
                     }
                     else {
                     nodeForDelete = findNodeForDelete(deleteEntry);
-                    deleteFoundNode(nodeForDelete);
+                    deleteFoundNode(nodeForDelete); System.out.println();
                     }
-                    System.out.println("The name \"" +deleteEntry+ "\" has been deleted from the list.");
+                    System.out.println("The name \"" +deleteEntry+ "\" has been deleted from the list." +"\n");
                     break;
                 case 4: //print out number of names in a specific section
                     buildIndexList();
@@ -93,7 +93,7 @@ public class Main extends LinkedList{
                         sectionChoice = keyboard.next();
                     }
                     sectionNum = sectionChoice.charAt(0) - 'a'; System.out.println();
-                    sectionCount(sectionNum);
+                    sectionCount(sectionNum); System.out.println();
                     break;
                 case 5: //print out names in a specific section
                     buildIndexList();
