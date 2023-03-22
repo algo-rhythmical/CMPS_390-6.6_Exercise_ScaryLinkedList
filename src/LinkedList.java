@@ -54,13 +54,19 @@ public class LinkedList{
     }
 
     static boolean isNameExist(String n){
+        int index;
+        int upperbound;
         Node current;
-        current = front;
-        while(current != null){
+
+        index=(int)n.charAt(0) - 'a';
+        upperbound = (index+2) * 456976;
+        current = nameCodeIndex[index].firstNode;
+
+        while(current != null && current.nameCode < upperbound) {
             if(n.equals(current.name)){
                 return true;
             }
-            else {
+            else{
                 current = current.next;
             }
         }
@@ -79,10 +85,27 @@ public class LinkedList{
     }
 
     static Node findNodeForDelete(String n){
+        int index;
+        int upperbound;
         Node current, previous;
-        current = front;
+
+        index=(int)n.charAt(0) - 'a';
+        upperbound = (index+1) * 456976;
+        current = nameCodeIndex[index].firstNode;
         previous = current;
-        while (!n.equals(current.name)) {
+        if(n.equals(current.name)){                     //if name to delete is first in section
+            index -= 1;
+            current = nameCodeIndex[index].firstNode;
+            while(current == null){
+                index -= 1;
+                current = nameCodeIndex[index].firstNode;
+            }
+            while(current.next.nameCode < upperbound){
+                current = current.next;
+            }
+            return current;
+        }
+        while (!n.equals(current.name)){
             previous = current;
             current = current.next;
         }

@@ -59,6 +59,7 @@ public class Main extends LinkedList{
                     showFullListCount();
                     break;
                 case 3: //deletes a name on the list
+                    buildIndexList();
                     keyboard.reset();
                     System.out.print("Which name would you like to delete?(or enter \"stop\" due to choice regret): ");
                     deleteEntry = keyboard.next();
